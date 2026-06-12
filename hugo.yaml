@@ -1,5 +1,5 @@
 baseURL: "https://hugo-profile.netlify.app"
-locale: "en-us"
+languageCode: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
 
@@ -9,7 +9,7 @@ defaultContentLanguageInSubdir: false
 
 languages:
   en:
-    label: "English"
+    languageName: "English"
     weight: 1
     contentDir: "content"
     menu:
@@ -25,7 +25,7 @@ languages:
           url: /gallery
           weight: 2
   es:
-    label: "Español"
+    languageName: "Español"
     weight: 2
     contentDir: "content/es"
     menu:
@@ -232,7 +232,7 @@ languages:
         btnName: Escríbeme
   fr:
     contentDir: "content/fr"
-    label: "Français"
+    languageName: "Français"
     weight: 3
     menu:
       main:
