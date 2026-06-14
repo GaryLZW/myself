@@ -1,4 +1,4 @@
-baseURL: "https://hugo-profile.netlify.app"
+baseURL: "https://lzwpersonalwebsite.netlify.app/"
 locale: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile

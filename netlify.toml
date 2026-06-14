@@ -1,0 +1,13 @@
+[build.environment]
+DART_SASS_VERSION = "1.100.0"
+GO_VERSION = "1.26.3"
+HUGO_VERSION = "0.161.1"
+NODE_VERSION = "24.16.0"
+TZ = "Europe/London"
+
+[build]
+publish = "public"
+command = """\
+  git config --global core.quotepath false && \
+  hugo build --gc --minify --baseURL "${URL}"
+  """
