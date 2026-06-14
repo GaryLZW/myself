@@ -1,4 +1,4 @@
-baseURL: "https://hugo-profile.netlify.app"
+baseURL: "https://garylzw.github.io/"   #"https://hugo-profile.netlify.app"
 locale: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
