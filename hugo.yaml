@@ -1,4 +1,4 @@
-baseURL: "https://garylzw.github.io/"   #"https://hugo-profile.netlify.app"
+baseURL: "https://hugo-profile.netlify.app"
 locale: "en-us"
 title: "Hugo Profile"
 theme: hugo-profile
@@ -584,7 +584,7 @@ params:
         #   url: https://profiles.cardiff.ac.uk/staff/luz30/
 
       customIcons:
-        - icon: /images/Cardiff_University_hrs.png
+        - icon: public/images/Cardiff_University_hrs.png
           url: "https://profiles.cardiff.ac.uk/staff/luz30/"
 
   # About
@@ -859,6 +859,4 @@ params:
 
   #customScripts: -| # You can add custom scripts which will be added before </body> tag
   #  <script type="text/javascript"><!-- any script here --></script>
-caches:
-  images:
-    dir: :cacheDir/images
+
