@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guassian Plane Wave on Hugo Profile</title>
+    <link>http://localhost:1313/tags/guassian-plane-wave/</link>
+    <description>Recent content in Guassian Plane Wave on Hugo Profile</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Sep 2026 14:44:33 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/guassian-plane-wave/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CP2K</title>
+      <link>http://localhost:1313/blogs/cp2k/</link>
+      <pubDate>Wed, 30 Sep 2026 14:44:33 +0530</pubDate>
+      <guid>http://localhost:1313/blogs/cp2k/</guid>
+      <description>&lt;h2 id=&#34;ab-inito-molecular-dynamics-with-cp2k&#34;&gt;&lt;em&gt;ab&lt;/em&gt; &lt;em&gt;inito&lt;/em&gt; molecular dynamics with CP2K&lt;/h2&gt;</description>
+    </item>
+  </channel>
+</rss>

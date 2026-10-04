@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href="/fav.png" type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:url" content="http://localhost:1313/blogs/quantum-espresso/">
+  <meta property="og:site_name" content="Hugo Profile">
+  <meta property="og:title" content="Quantum Espresso">
+  <meta property="og:description" content="Example calc with Quantum Espresso">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2026-09-30T19:53:33+05:30">
+    <meta property="article:modified_time" content="2026-09-30T19:53:33+05:30">
+    <meta property="article:tag" content="QM Software">
+    <meta property="article:tag" content="Plane Wave">
+    <meta property="article:tag" content="Example">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Quantum Espresso">
+  <meta name="twitter:description" content="Example calc with Quantum Espresso">
+
+
+
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/language-switcher.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="Example calc with Quantum Espresso">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+Quantum Espresso | Hugo Profile
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  true ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                <img src="/fav.png" width="30" height="30"
+                    class="d-inline-block align-top">
+                Hugo Profile
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Blog posts">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">Quantum Espresso</h1>
+            <div class="text-center">
+              
+                Zhongwei Lu
+                <small>|</small>
+              
+              Sep 30, 2026
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/quantum-espresso/qe-pdos.png" alt="Quantum Espresso">
+          </div>
+          
+          <article class="page-content  p-2">
+          <h2 id="density-of-state-with-qe">Density of State with QE</h2>
+<p>Quantum Espresso (QE, <a href="https://www.quantum-espresso.org/">https://www.quantum-espresso.org/</a>) is an open-source, plane-wave based, DFT software.</p>
+<p>Here, QE is used to generate Density of State plots for Pr \( _{2} \) O \( _{3} \).</p>
+<p><img src="/images/quantum-espresso/bluk.png" alt="alt text"></p>
+<h3 id="convergence">Convergence</h3>
+<p>Using a (8,8,8) k grid and a fixed ecutrho/ecutwfc=8 ratio, the ecutwfc was converged first.</p>
+<p><img src="/images/quantum-espresso/ecutwfc_convergence_dual_axis.png" alt="alt text"></p>
+<p>The ecutwfc is converged at 120 Ry. A higher ecutrho/ecutwfc ratio did not change the energy.</p>
+<p>The k_grid convergenced is benchmarked with Geometry Optimization of the unit cell.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase <span style="color:#f92672">import</span> Atoms
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.io.trajectory <span style="color:#f92672">import</span> Trajectory
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.eos <span style="color:#f92672">import</span> EquationOfState
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.io <span style="color:#f92672">import</span> read
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.units <span style="color:#f92672">import</span> kJ
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.filters <span style="color:#f92672">import</span> ExpCellFilter, FrechetCellFilter
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.optimize <span style="color:#f92672">import</span> LBFGS, QuasiNewton
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.calculators.espresso <span style="color:#f92672">import</span> Espresso, EspressoProfile
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Pseudopotentials from SSSP Efficiency v1.3.0</span>
+</span></span><span style="display:flex;"><span>pseudopotentials <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;Pr&#39;</span>: <span style="color:#e6db74">&#39;Pr.paw.pbe.z_13.atompaw.wentzcovitch.v1.0.legacy.upf&#39;</span>, <span style="color:#e6db74">&#39;O&#39;</span>: <span style="color:#e6db74">&#39;O.paw.pbe.z_6.ld1.psl.v0.1.upf&#39;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Optionally create profile to override paths in ASE configuration:</span>
+</span></span><span style="display:flex;"><span>profile <span style="color:#f92672">=</span> EspressoProfile(
+</span></span><span style="display:flex;"><span>    command<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mpirun -np $SLURM_NTASKS /shared/apps/easybuild/x86_64/amd/zen4/software/QuantumESPRESSO/7.5-foss-2025b/bin/pw.x&#39;</span>,
+</span></span><span style="display:flex;"><span>    pseudo_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/shared/home1/c.c22015584/Example-QuantumEspresso/mix-sssp-prec-pbe-lib-v2/library&#39;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Pr 90 720; O 50 600</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#opt wfc 120 rho 960</span>
+</span></span><span style="display:flex;"><span>wfc <span style="color:#f92672">=</span> <span style="color:#ae81ff">120</span>
+</span></span><span style="display:flex;"><span>rho <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span> <span style="color:#f92672">*</span> wfc
+</span></span><span style="display:flex;"><span>input_data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;system&#39;</span>: {<span style="color:#e6db74">&#39;ecutwfc&#39;</span>: wfc, <span style="color:#e6db74">&#39;ecutrho&#39;</span>: rho},
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#&#39;disk_io&#39;: &#39;low&#39;,  # Automatically put into the &#39;control&#39; section</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;tprnfor&#39;</span>: <span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;tstress&#39;</span>: <span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#&#39;mixing_ndim&#39;: 25,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;electron_maxstep&#39;</span>: <span style="color:#ae81ff">150</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>espresso <span style="color:#f92672">=</span> Espresso(profile<span style="color:#f92672">=</span>profile, pseudopotentials<span style="color:#f92672">=</span>pseudopotentials,
+</span></span><span style="display:flex;"><span>        kpts<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">15</span>),
+</span></span><span style="display:flex;"><span>        input_data<span style="color:#f92672">=</span>input_data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>oxide <span style="color:#f92672">=</span> read(<span style="color:#e6db74">&#34;EntryWithCollCode75481.cif&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cell <span style="color:#f92672">=</span> oxide<span style="color:#f92672">.</span>get_cell()
+</span></span><span style="display:flex;"><span>traj <span style="color:#f92672">=</span> Trajectory(<span style="color:#e6db74">&#39;oxide.traj&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> espresso<span style="color:#f92672">.</span>socketio(unixsocket<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ase-espresso&#39;</span>) <span style="color:#66d9ef">as</span> calc:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    oxide<span style="color:#f92672">.</span>calc <span style="color:#f92672">=</span> calc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ecf <span style="color:#f92672">=</span> FrechetCellFilter(oxide, constant_volume<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    qn <span style="color:#f92672">=</span> QuasiNewton(ecf)
+</span></span><span style="display:flex;"><span>    traj_opt <span style="color:#f92672">=</span> Trajectory(<span style="color:#e6db74">&#39;opt_x.traj&#39;</span>, <span style="color:#e6db74">&#39;a&#39;</span>, oxide)
+</span></span><span style="display:flex;"><span>    qn<span style="color:#f92672">.</span>attach(traj_opt)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    qn<span style="color:#f92672">.</span>run(fmax<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>)
+</span></span><span style="display:flex;"><span>    energy <span style="color:#f92672">=</span> oxide<span style="color:#f92672">.</span>get_potential_energy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    traj<span style="color:#f92672">.</span>write(oxide)
+</span></span></code></pre></div><p><img src="/images/quantum-espresso/kpoint_convergence.png" alt="alt text"></p>
+<p>Finally, the full density of state analysis with dos.x,</p>
+<p><img src="/images/quantum-espresso/tot_dos.png" alt="alt text"></p>
+<p>and the projected density of state analysis with pdos.x.</p>
+<p><img src="/images/quantum-espresso/combined_pdos_vertical.png" alt="alt text"></p>
+<p>More to add: Phonon.</p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#density-of-state-with-qe">Density of State with QE</a>
+      <ul>
+        <li><a href="#convergence">Convergence</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              
+              <li class="list-inline-item"><a href="/tags/qm-software"
+                target="_blank"
+              >QM software</a></li>
+              
+              
+              <li class="list-inline-item"><a href="/tags/plane-wave"
+                target="_blank"
+              >plane wave</a></li>
+              
+              
+              <li class="list-inline-item"><a href="/tags/example"
+                target="_blank"
+              >example</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text=Example%20calc%20with%20Quantum%20Espresso http%3a%2f%2flocalhost%3a1313%2fblogs%2fquantum-espresso%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='https://twitter.com/share?text=Quantum%20Espresso&url=http%3a%2f%2flocalhost%3a1313%2fblogs%2fquantum-espresso%2f&hashtags=QM%20software%2cplane%20wave%2cexample'>
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Quantum%20Espresso: http%3a%2f%2flocalhost%3a1313%2fblogs%2fquantum-espresso%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=Quantum%20Espresso&amp;body=Check%20out%20this%20site http%3a%2f%2flocalhost%3a1313%2fblogs%2fquantum-espresso%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+
+
+  
+
+ 
+
+<div class="text-center pt-2">
+    
+    <span class="px-1">
+        <a href="https://github.com/GaryLZW" target="_blank" aria-label="github">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2.7em" height="2.7em" viewBox="0 0 1792 1792">
+                <path id="footer-socialNetworks-github-svg-path"
+                    d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5t-203.5 84.5h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5h-224q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z" />
+
+                <metadata>
+                    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                        <rdf:Description about="https://iconscout.com/legal#licenses"
+                            dc:title="Github, Online, Project, Hosting, Square"
+                            dc:description="Github, Online, Project, Hosting, Square" dc:publisher="Iconscout"
+                            dc:date="2016-12-14" dc:format="image/svg+xml" dc:language="en">
+                            <dc:creator>
+                                <rdf:Bag>
+                                    <rdf:li>Font Awesome</rdf:li>
+                                </rdf:Bag>
+                            </dc:creator>
+                        </rdf:Description>
+                    </rdf:RDF>
+                </metadata>
+            </svg>
+        </a>
+    </span>
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="http://localhost:1313/" title="Hugo Profile">
+                        <img alt="Footer logo" src="/fav.png"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2026  All rights reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+        document.documentElement.classList.remove('dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script>
+      
+      window.searchIndexURL = "/index.json";
+    </script>
+    <script src="/js/search.js"></script>
+
+
+
+
+
+<!-- MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" integrity="sha384-M5jmNxKC9EVnuqeMwRHvFuYUE8Hhp0TgBruj/GZRkYtiMrCRgH7yvv5KY+Owi7TW" crossorigin="anonymous"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

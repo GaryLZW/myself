@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href="/fav.png" type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:url" content="http://localhost:1313/blogs/cp2k/">
+  <meta property="og:site_name" content="Hugo Profile">
+  <meta property="og:title" content="CP2K">
+  <meta property="og:description" content="AIMD with CP2K">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2026-10-03T14:44:33+05:30">
+    <meta property="article:modified_time" content="2026-10-03T14:44:33+05:30">
+    <meta property="article:tag" content="QM Software">
+    <meta property="article:tag" content="Guassian Plane Wave">
+    <meta property="article:tag" content="Example">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CP2K">
+  <meta name="twitter:description" content="AIMD with CP2K">
+
+
+
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/language-switcher.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="AIMD with CP2K">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+CP2K | Hugo Profile
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  true ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                <img src="/fav.png" width="30" height="30"
+                    class="d-inline-block align-top">
+                Hugo Profile
+                
+            </a>
+
+            
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Blog posts">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">CP2K</h1>
+            <div class="text-center">
+              
+                Zhongwei Lu
+                <small>|</small>
+              
+              Oct 3, 2026
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img class="img-fluid mx-auto d-block" src="/images/cp2k/waterbox.png" alt="CP2K">
+          </div>
+          
+          <article class="page-content  p-2">
+          <h2 id="ab-inito-molecular-dynamics-with-cp2k"><em>ab</em> <em>inito</em> molecular dynamics with CP2K</h2>
+<p>CP2K is an open-source souce software that supports both DFT and classical force fields. Its DFT functionality is based on the mixed Gaussian and plane waves approaches GPW and GAPW.</p>
+<p>Here, an <em>ab</em> <em>inito</em> molecular dynamics simulation of a water box is performed with CP2K.</p>
+<h3 id="convergence">Convergence</h3>
+<p>With a big-enough REL_CUTOFF=60, converge the CUTOFF parameter first for a water molecule.</p>
+<p><img src="/images/cp2k/energy-cost-cutoff.png" alt="alt text"> <img src="/images/cp2k/multigrid_cutoff.png" alt="alt text"></p>
+<p>Too large CUTOFF values lead to poor grid distribution, the convergence region is in the middle (CUTOFF=400 is chosen).</p>
+<p>Then the REL_CUTOFF convergence is investigated, and 60 is found to be a reasonable value.</p>
+<p><img src="/images/cp2k/rel_cutoff_energy.png" alt="alt text"> <img src="/images/cp2k/multigrid_rel.png" alt="alt text"></p>
+<h3 id="pre-equilibration-with-mace">Pre-equilibration with MACE</h3>
+<p>The water box with 27 molecules was prepared with ASE and equilibrated with a mace-mp foundation model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> ase.units <span style="color:#66d9ef">as</span> units
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase <span style="color:#f92672">import</span> Atoms
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.build <span style="color:#f92672">import</span> molecule
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#from ase.calculators.tip3p import TIP3P, angleHOH, rOH</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.constraints <span style="color:#f92672">import</span> FixBondLengths
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.io.trajectory <span style="color:#f92672">import</span> Trajectory
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.md <span style="color:#f92672">import</span> Langevin
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ase.optimize <span style="color:#f92672">import</span> LBFGS
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> mace.calculators <span style="color:#f92672">import</span> mace_mp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set up water box at 20 deg C density</span>
+</span></span><span style="display:flex;"><span>atoms <span style="color:#f92672">=</span> molecule(<span style="color:#e6db74">&#34;H2O&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vol <span style="color:#f92672">=</span> ((<span style="color:#ae81ff">18.01528</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">6.022140857e23</span>) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">0.9982</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">1e24</span>)) <span style="color:#f92672">**</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">3.0</span>)
+</span></span><span style="display:flex;"><span>atoms<span style="color:#f92672">.</span>set_cell((vol, vol, vol))
+</span></span><span style="display:flex;"><span>atoms<span style="color:#f92672">.</span>center()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>atoms <span style="color:#f92672">=</span> atoms<span style="color:#f92672">.</span>repeat((<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>atoms<span style="color:#f92672">.</span>set_pbc(<span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>calc <span style="color:#f92672">=</span> mace_mp(model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;medium&#34;</span>, dispersion<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, default_dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;float32&#34;</span>, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cpu&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>atoms<span style="color:#f92672">.</span>calc <span style="color:#f92672">=</span> calc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>opt <span style="color:#f92672">=</span> LBFGS(atoms)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>opt<span style="color:#f92672">.</span>run(fmax<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tag <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mace_27mol_equil&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>md <span style="color:#f92672">=</span> Langevin(
+</span></span><span style="display:flex;"><span>    atoms,
+</span></span><span style="display:flex;"><span>    timestep<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> units<span style="color:#f92672">.</span>fs,
+</span></span><span style="display:flex;"><span>    temperature<span style="color:#f92672">=</span><span style="color:#ae81ff">300</span> <span style="color:#f92672">*</span> units<span style="color:#f92672">.</span>kB,
+</span></span><span style="display:flex;"><span>    friction<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>,
+</span></span><span style="display:flex;"><span>    logfile<span style="color:#f92672">=</span>tag <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.log&#39;</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>traj <span style="color:#f92672">=</span> Trajectory(tag <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;.traj&#39;</span>, <span style="color:#e6db74">&#39;w&#39;</span>, atoms)
+</span></span><span style="display:flex;"><span>md<span style="color:#f92672">.</span>attach(traj<span style="color:#f92672">.</span>write, interval<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>md<span style="color:#f92672">.</span>run(<span style="color:#ae81ff">4000</span>)
+</span></span></code></pre></div><p><img src="/images/cp2k/mace_27mol_equil_running_avg.png" alt="alt text"></p>
+<p>####k grid</p>
+<p>The k grid sampling is converged in terms of energy from (2,2,2).</p>
+<p><img src="/images/cp2k/k_conv.png" alt="alt text"></p>
+<p>A well converged k grid of (4,4,4) is chosen without incurring much additional cost.</p>
+<h3 id="aimd-simulation">AIMD simulation</h3>
+<p>Here is an input file generated with ASE based on the MACE pre-equilibrated geometry.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>!!! Generated by ASE !!!
+</span></span><span style="display:flex;"><span>&amp;FORCE_EVAL
+</span></span><span style="display:flex;"><span>   METHOD Quickstep
+</span></span><span style="display:flex;"><span>   STRESS_TENSOR ANALYTICAL
+</span></span><span style="display:flex;"><span>   &amp;DFT
+</span></span><span style="display:flex;"><span>      BASIS_SET_FILE_NAME BASIS_MOLOPT
+</span></span><span style="display:flex;"><span>      POTENTIAL_FILE_NAME POTENTIAL
+</span></span><span style="display:flex;"><span>      &amp;KPOINTS
+</span></span><span style="display:flex;"><span>         SCHEME MONKHORST-PACK <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>      &amp;END KPOINTS
+</span></span><span style="display:flex;"><span>      &amp;MGRID
+</span></span><span style="display:flex;"><span>         NGRIDS <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>         REL_CUTOFF <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>         CUTOFF <span style="color:#f92672">[</span>eV<span style="color:#f92672">]</span> 5.442277204873448682e+03
+</span></span><span style="display:flex;"><span>      &amp;END MGRID
+</span></span><span style="display:flex;"><span>      &amp;SCF
+</span></span><span style="display:flex;"><span>         MAX_SCF <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>         &amp;PRINT
+</span></span><span style="display:flex;"><span>            &amp;RESTART OFF
+</span></span><span style="display:flex;"><span>            &amp;END RESTART
+</span></span><span style="display:flex;"><span>         &amp;END PRINT
+</span></span><span style="display:flex;"><span>      &amp;END SCF
+</span></span><span style="display:flex;"><span>      &amp;PRINT
+</span></span><span style="display:flex;"><span>         &amp;E_DENSITY_CUBE OFF
+</span></span><span style="display:flex;"><span>         &amp;END E_DENSITY_CUBE
+</span></span><span style="display:flex;"><span>         &amp;MO_CUBES
+</span></span><span style="display:flex;"><span>            NLUMO <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>            NHOMO <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>            WRITE_CUBE .FALSE.
+</span></span><span style="display:flex;"><span>            &amp;EACH
+</span></span><span style="display:flex;"><span>               MD <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>            &amp;END EACH
+</span></span><span style="display:flex;"><span>         &amp;END MO_CUBES
+</span></span><span style="display:flex;"><span>      &amp;END PRINT
+</span></span><span style="display:flex;"><span>      &amp;LS_SCF
+</span></span><span style="display:flex;"><span>         MAX_SCF <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>      &amp;END LS_SCF
+</span></span><span style="display:flex;"><span>      &amp;XC
+</span></span><span style="display:flex;"><span>         &amp;XC_FUNCTIONAL
+</span></span><span style="display:flex;"><span>            &amp;PBE
+</span></span><span style="display:flex;"><span>            &amp;END PBE
+</span></span><span style="display:flex;"><span>         &amp;END XC_FUNCTIONAL
+</span></span><span style="display:flex;"><span>      &amp;END XC
+</span></span><span style="display:flex;"><span>   &amp;END DFT
+</span></span><span style="display:flex;"><span>   &amp;PRINT
+</span></span><span style="display:flex;"><span>      &amp;STRESS_TENSOR ON
+</span></span><span style="display:flex;"><span>      &amp;END STRESS_TENSOR
+</span></span><span style="display:flex;"><span>   &amp;END PRINT
+</span></span><span style="display:flex;"><span>   &amp;SUBSYS
+</span></span><span style="display:flex;"><span>      &amp;COORD
+</span></span><span style="display:flex;"><span>         O 1.278915707442245697e+00 2.194621646636388146e+00 2.574272241630262581e+00
+</span></span><span style="display:flex;"><span>         H 1.164263954964662728e+00 2.755036642588189810e+00 3.373923015847648088e+00
+</span></span><span style="display:flex;"><span>         H 4.570802376424561997e-01 1.672317798313467607e+00 2.504434520756621652e+00
+</span></span><span style="display:flex;"><span>         O 5.664120527357747736e-01 3.960183937712392854e+00 4.593486053340541275e+00
+</span></span><span style="display:flex;"><span>         H 9.496702825945392279e-01 4.835176370184330885e+00 4.204422367670724192e+00
+</span></span><span style="display:flex;"><span>         H 8.360255236707938575e-01 3.825352907395513480e+00 5.543666705514561421e+00
+</span></span><span style="display:flex;"><span>         O -2.053267818437087555e-01 -1.974791755338566879e-01 6.498970962657896422e+00
+</span></span><span style="display:flex;"><span>         H 7.634973666348909838e-01 -1.553677468447924592e-01 6.791487329411808993e+00
+</span></span><span style="display:flex;"><span>         H -7.267470858033745484e-01 -8.753167543973745524e-01 7.035822171806184855e+00
+</span></span><span style="display:flex;"><span>         O 3.056198172612605735e+00 3.686883191421193029e+00 1.016986917850329686e+00
+</span></span><span style="display:flex;"><span>         H 3.197278549360641264e+00 3.451067221436715737e+00 1.735966716673604171e-03
+</span></span><span style="display:flex;"><span>         H 2.344616496200607969e+00 3.048946099630238660e+00 1.349723320005162153e+00
+</span></span><span style="display:flex;"><span>         O -6.765438818002224020e-01 4.946778283049813929e+00 9.380809802778189876e+00
+</span></span><span style="display:flex;"><span>         H -1.488517771218347718e+00 4.318187707859771685e+00 9.522469694625206316e+00
+</span></span><span style="display:flex;"><span>         H -9.667511146358258589e-01 5.732242764729405415e+00 8.877517033439218608e+00
+</span></span><span style="display:flex;"><span>         O 5.394672522625398869e+00 1.977744564708751929e+00 6.529993942933562501e+00
+</span></span><span style="display:flex;"><span>         H 6.071058440587193239e+00 2.115414750672684363e+00 7.213503092209609946e+00
+</span></span><span style="display:flex;"><span>         H 4.550464227860143041e+00 2.325240569750739006e+00 6.934135216706102334e+00
+</span></span><span style="display:flex;"><span>         O 3.648367274274221028e+00 9.930046955918202300e+00 2.722644087932098778e+00
+</span></span><span style="display:flex;"><span>         H 2.702475483697689640e+00 1.028024327645348102e+01 2.732012723662864850e+00
+</span></span><span style="display:flex;"><span>         H 3.492308849009775784e+00 9.064720994294384937e+00 2.136459394508012810e+00
+</span></span><span style="display:flex;"><span>         O 6.077254941745731109e-01 8.269927840023688859e+00 3.858266446585333131e+00
+</span></span><span style="display:flex;"><span>         H -6.264364284850379438e-02 8.805275795490700830e+00 3.331367048148492938e+00
+</span></span><span style="display:flex;"><span>         H 4.050817220932066975e-01 8.470424504220801509e+00 4.818079962579952635e+00
+</span></span><span style="display:flex;"><span>         O 2.268005453309266173e+00 9.296684437571304471e+00 7.244437530220516841e+00
+</span></span><span style="display:flex;"><span>         H 2.883941183291851562e+00 9.119505358613455570e+00 6.524721407742757329e+00
+</span></span><span style="display:flex;"><span>         H 2.329011208322322002e+00 8.419695063100888888e+00 7.754853108215989721e+00
+</span></span><span style="display:flex;"><span>         O 5.675645767479518433e+00 7.456572324463124346e-01 9.477622924316142505e-01
+</span></span><span style="display:flex;"><span>         H 5.125663641783633651e+00 1.113339218026184518e+00 1.652311289267277994e+00
+</span></span><span style="display:flex;"><span>         H 5.814320806013477672e+00 1.544175636251437833e+00 3.701594221393481043e-01
+</span></span><span style="display:flex;"><span>         O 6.652010408524287932e+00 -1.051097820821088602e+00 4.122942602243059973e+00
+</span></span><span style="display:flex;"><span>         H 5.950624489902684111e+00 -8.267736105463764362e-01 4.843223628089623922e+00
+</span></span><span style="display:flex;"><span>         H 7.000577668809621734e+00 -1.748641596118987451e-01 3.751047154547585638e+00
+</span></span><span style="display:flex;"><span>         O 4.485479368364138075e+00 -6.319301730117880822e-02 5.235436583149966516e+00
+</span></span><span style="display:flex;"><span>         H 4.968889253900671044e+00 7.704294599701035917e-01 5.489211239323287472e+00
+</span></span><span style="display:flex;"><span>         H 4.076022079373047724e+00 3.775244552321568164e-02 4.314117132556769540e+00
+</span></span><span style="display:flex;"><span>         O 6.171333493661770753e+00 3.281643511873397312e+00 1.233335631271485766e-01
+</span></span><span style="display:flex;"><span>         H 5.390375971228042573e+00 3.671115310758147121e+00 -3.534062223392187008e-01
+</span></span><span style="display:flex;"><span>         H 5.926700058380152569e+00 3.691484564721093431e+00 9.769725852338408956e-01
+</span></span><span style="display:flex;"><span>         O 2.143142350429326104e+00 6.055353949286351067e+00 3.896426210992409711e+00
+</span></span><span style="display:flex;"><span>         H 2.489468613848052847e+00 6.229503774444382636e+00 3.048013745827465648e+00
+</span></span><span style="display:flex;"><span>         H 1.657829076998592610e+00 6.890100255062481693e+00 3.990145567389356884e+00
+</span></span><span style="display:flex;"><span>         O 3.234455600547084142e+00 3.410264609268681912e+00 7.736416760787201419e+00
+</span></span><span style="display:flex;"><span>         H 2.310113802701173835e+00 3.638319138883966630e+00 7.453924256897942691e+00
+</span></span><span style="display:flex;"><span>         H 3.770017118891801466e+00 4.152820513151508131e+00 7.361419536615041004e+00
+</span></span><span style="display:flex;"><span>         O 3.106881508052902419e+00 6.874139844875782224e+00 -1.083388554905660550e+00
+</span></span><span style="display:flex;"><span>         H 3.826883073816696346e+00 7.250599316888877155e+00 -6.306232807839268206e-01
+</span></span><span style="display:flex;"><span>         H 2.555806376511988720e+00 6.486047906908814831e+00 -4.034241992667741972e-01
+</span></span><span style="display:flex;"><span>         O 5.254161267733893581e+00 4.133994014903376701e+00 3.080411234924361530e+00
+</span></span><span style="display:flex;"><span>         H 4.538896971712797601e+00 3.537924362334866402e+00 2.681508018275830185e+00
+</span></span><span style="display:flex;"><span>         H 5.984455127915826900e+00 3.623739080537225821e+00 3.526052452519961911e+00
+</span></span><span style="display:flex;"><span>         O 4.108309623402732313e+00 5.577029458478473423e+00 6.109401080144719387e+00
+</span></span><span style="display:flex;"><span>         H 3.550689129203864258e+00 6.013309907872955939e+00 6.830005709051841123e+00
+</span></span><span style="display:flex;"><span>         H 3.509799096005237207e+00 5.625637222707180918e+00 5.340538366235501933e+00
+</span></span><span style="display:flex;"><span>         O 7.889295664741014846e+00 1.146776070074897236e+00 2.912749902602709717e+00
+</span></span><span style="display:flex;"><span>         H 7.732300917029719223e+00 1.975479690242629482e+00 3.454093541443465476e+00
+</span></span><span style="display:flex;"><span>         H 7.190724899673799797e+00 1.171741418091373887e+00 2.156996429210869426e+00
+</span></span><span style="display:flex;"><span>         O 7.334486775182215368e+00 3.270795799405791460e+00 4.510406501011030578e+00
+</span></span><span style="display:flex;"><span>         H 6.827822786360566276e+00 3.039037018085749331e+00 5.290365965439115747e+00
+</span></span><span style="display:flex;"><span>         H 7.982034789866554014e+00 3.969589649825131517e+00 4.651029096475499891e+00
+</span></span><span style="display:flex;"><span>         O 1.006638147694884111e+01 3.637228244360850571e+00 7.248810836820672066e+00
+</span></span><span style="display:flex;"><span>         H 9.439793847754271994e+00 2.897400186697649982e+00 7.497525233276002510e+00
+</span></span><span style="display:flex;"><span>         H 9.816840166087962061e+00 4.316730772497759716e+00 7.887064308671750013e+00
+</span></span><span style="display:flex;"><span>         O 1.131576294418627882e+01 6.081998662656046939e+00 9.393189326096496039e-01
+</span></span><span style="display:flex;"><span>         H 1.034790778498625485e+01 5.882339492505712641e+00 1.042144121536367152e+00
+</span></span><span style="display:flex;"><span>         H 1.174140675593526595e+01 5.174084392628640394e+00 1.094273676595723499e+00
+</span></span><span style="display:flex;"><span>         O 6.825415155104789022e+00 5.961209367509383128e+00 5.580557435922834486e+00
+</span></span><span style="display:flex;"><span>         H 5.926372579630705850e+00 5.678992294193726309e+00 5.470694940216401569e+00
+</span></span><span style="display:flex;"><span>         H 7.027693549494049563e+00 6.645252630447682662e+00 4.928337119558618973e+00
+</span></span><span style="display:flex;"><span>         O 4.874818293996113994e+00 6.786356195124236379e+00 1.182989788758436767e+01
+</span></span><span style="display:flex;"><span>         H 4.970770606550007464e+00 5.896943051822671755e+00 1.214691186842049575e+01
+</span></span><span style="display:flex;"><span>         H 5.484998438891003580e+00 7.381363097067554335e+00 1.234066877298143261e+01
+</span></span><span style="display:flex;"><span>         O 7.675886950984761370e+00 6.882449977547008046e+00 7.790180711241831979e+00
+</span></span><span style="display:flex;"><span>         H 6.853464066353504691e+00 7.126619243387864344e+00 8.232330026269835344e+00
+</span></span><span style="display:flex;"><span>         H 7.626643564774957085e+00 6.357706780670746127e+00 6.943602900389446830e+00
+</span></span><span style="display:flex;"><span>         O 5.360090618160191944e+00 7.657743066941313792e+00 9.303816054387983314e+00
+</span></span><span style="display:flex;"><span>         H 5.254224874687916547e+00 7.192901221795561462e+00 1.023640264304837721e+01
+</span></span><span style="display:flex;"><span>         H 5.316944895734878607e+00 8.626755810292442206e+00 9.499234997149322623e+00
+</span></span><span style="display:flex;"><span>         O 8.133912901634497317e+00 1.114937925770591143e+01 7.524537444672109388e+00
+</span></span><span style="display:flex;"><span>         H 8.290021788128511204e+00 1.110180638028971600e+01 8.477795959979978591e+00
+</span></span><span style="display:flex;"><span>         H 8.408768999248628973e+00 1.024924314817921811e+01 7.101644406855484704e+00
+</span></span><span style="display:flex;"><span>      &amp;END COORD
+</span></span><span style="display:flex;"><span>      &amp;CELL
+</span></span><span style="display:flex;"><span>         PERIODIC XYZ
+</span></span><span style="display:flex;"><span>         A 9.318487677298488592e+00 0.000000000000000000e+00 0.000000000000000000e+00
+</span></span><span style="display:flex;"><span>         B 0.000000000000000000e+00 9.318487677298488592e+00 0.000000000000000000e+00
+</span></span><span style="display:flex;"><span>         C 0.000000000000000000e+00 0.000000000000000000e+00 9.318487677298488592e+00
+</span></span><span style="display:flex;"><span>      &amp;END CELL
+</span></span><span style="display:flex;"><span>      &amp;KIND H
+</span></span><span style="display:flex;"><span>         BASIS_SET DZVP-MOLOPT-SR-GTH
+</span></span><span style="display:flex;"><span>         POTENTIAL GTH-PBE
+</span></span><span style="display:flex;"><span>      &amp;END KIND
+</span></span><span style="display:flex;"><span>      &amp;KIND O
+</span></span><span style="display:flex;"><span>         BASIS_SET DZVP-MOLOPT-SR-GTH
+</span></span><span style="display:flex;"><span>         POTENTIAL GTH-PBE
+</span></span><span style="display:flex;"><span>      &amp;END KIND
+</span></span><span style="display:flex;"><span>   &amp;END SUBSYS
+</span></span><span style="display:flex;"><span>&amp;END FORCE_EVAL
+</span></span><span style="display:flex;"><span>&amp;GLOBAL
+</span></span><span style="display:flex;"><span>   RUN_TYPE MD
+</span></span><span style="display:flex;"><span>   PROJECT cp2k
+</span></span><span style="display:flex;"><span>   PRINT_LEVEL LOW
+</span></span><span style="display:flex;"><span>&amp;END GLOBAL
+</span></span><span style="display:flex;"><span>&amp;MOTION
+</span></span><span style="display:flex;"><span>   &amp;MD
+</span></span><span style="display:flex;"><span>      ENSEMBLE NVT
+</span></span><span style="display:flex;"><span>      STEPS <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span>      TIMESTEP 0.5
+</span></span><span style="display:flex;"><span>      TEMPERATURE <span style="color:#ae81ff">300</span>
+</span></span><span style="display:flex;"><span>      &amp;THERMOSTAT
+</span></span><span style="display:flex;"><span>         TYPE CSVR
+</span></span><span style="display:flex;"><span>         &amp;CSVR
+</span></span><span style="display:flex;"><span>            TIMECON 100.0
+</span></span><span style="display:flex;"><span>         &amp;END CSVR
+</span></span><span style="display:flex;"><span>      &amp;END THERMOSTAT
+</span></span><span style="display:flex;"><span>   &amp;END MD
+</span></span><span style="display:flex;"><span>   &amp;PRINT
+</span></span><span style="display:flex;"><span>      &amp;TRAJECTORY
+</span></span><span style="display:flex;"><span>         &amp;EACH
+</span></span><span style="display:flex;"><span>            MD <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>         &amp;END EACH
+</span></span><span style="display:flex;"><span>      &amp;END TRAJECTORY
+</span></span><span style="display:flex;"><span>      &amp;VELOCITIES OFF
+</span></span><span style="display:flex;"><span>      &amp;END VELOCITIES
+</span></span><span style="display:flex;"><span>      &amp;FORCES OFF
+</span></span><span style="display:flex;"><span>      &amp;END FORCES
+</span></span><span style="display:flex;"><span>      &amp;RESTART_HISTORY
+</span></span><span style="display:flex;"><span>         &amp;EACH
+</span></span><span style="display:flex;"><span>            MD <span style="color:#ae81ff">500</span>
+</span></span><span style="display:flex;"><span>         &amp;END EACH
+</span></span><span style="display:flex;"><span>      &amp;END RESTART_HISTORY
+</span></span><span style="display:flex;"><span>      &amp;RESTART
+</span></span><span style="display:flex;"><span>         BACKUP_COPIES <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>         &amp;EACH
+</span></span><span style="display:flex;"><span>            MD <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>         &amp;END EACH
+</span></span><span style="display:flex;"><span>      &amp;END RESTART
+</span></span><span style="display:flex;"><span>   &amp;END PRINT
+</span></span><span style="display:flex;"><span>&amp;END MOTION
+</span></span></code></pre></div>
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ab-inito-molecular-dynamics-with-cp2k"><em>ab</em> <em>inito</em> molecular dynamics with CP2K</a>
+      <ul>
+        <li><a href="#convergence">Convergence</a></li>
+        <li><a href="#pre-equilibration-with-mace">Pre-equilibration with MACE</a></li>
+        <li><a href="#aimd-simulation">AIMD simulation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              
+              <li class="list-inline-item"><a href="/tags/qm-software"
+                target="_blank"
+              >QM software</a></li>
+              
+              
+              <li class="list-inline-item"><a href="/tags/guassian-plane-wave"
+                target="_blank"
+              >Guassian plane wave</a></li>
+              
+              
+              <li class="list-inline-item"><a href="/tags/example"
+                target="_blank"
+              >example</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+          <aside class="social">
+            <h5>Social</h5>
+            <div class="social-content">
+              <ul class="list-inline">
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://www.linkedin.com/feed/?shareActive=true&text=AIMD%20with%20CP2K http%3a%2f%2flocalhost%3a1313%2fblogs%2fcp2k%2f">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='https://twitter.com/share?text=CP2K&url=http%3a%2f%2flocalhost%3a1313%2fblogs%2fcp2k%2f&hashtags=QM%20software%2cGuassian%20plane%20wave%2cexample'>
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=CP2K: http%3a%2f%2flocalhost%3a1313%2fblogs%2fcp2k%2f">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item text-center">
+                  <a target="_blank" href='mailto:?subject=CP2K&amp;body=Check%20out%20this%20site http%3a%2f%2flocalhost%3a1313%2fblogs%2fcp2k%2f'>
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+
+
+  
+
+ 
+
+<div class="text-center pt-2">
+    
+    <span class="px-1">
+        <a href="https://github.com/GaryLZW" target="_blank" aria-label="github">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2.7em" height="2.7em" viewBox="0 0 1792 1792">
+                <path id="footer-socialNetworks-github-svg-path"
+                    d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5t-203.5 84.5h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5h-224q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z" />
+
+                <metadata>
+                    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                        <rdf:Description about="https://iconscout.com/legal#licenses"
+                            dc:title="Github, Online, Project, Hosting, Square"
+                            dc:description="Github, Online, Project, Hosting, Square" dc:publisher="Iconscout"
+                            dc:date="2016-12-14" dc:format="image/svg+xml" dc:language="en">
+                            <dc:creator>
+                                <rdf:Bag>
+                                    <rdf:li>Font Awesome</rdf:li>
+                                </rdf:Bag>
+                            </dc:creator>
+                        </rdf:Description>
+                    </rdf:RDF>
+                </metadata>
+            </svg>
+        </a>
+    </span>
+    
+
+    
+
+    
+
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="http://localhost:1313/" title="Hugo Profile">
+                        <img alt="Footer logo" src="/fav.png"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2026  All rights reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+        document.documentElement.classList.remove('dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+    <script>
+      
+      window.searchIndexURL = "/index.json";
+    </script>
+    <script src="/js/search.js"></script>
+
+
+
+
+
+<!-- MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" integrity="sha384-M5jmNxKC9EVnuqeMwRHvFuYUE8Hhp0TgBruj/GZRkYtiMrCRgH7yvv5KY+Owi7TW" crossorigin="anonymous"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

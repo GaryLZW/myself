@@ -6,8 +6,36 @@
     <description>Recent content in Tags on Hugo Profile</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Dec 2022 19:53:33 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 19:53:33 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Example</title>
+      <link>http://localhost:1313/tags/example/</link>
+      <pubDate>Wed, 30 Sep 2026 19:53:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/example/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plane Wave</title>
+      <link>http://localhost:1313/tags/plane-wave/</link>
+      <pubDate>Wed, 30 Sep 2026 19:53:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/plane-wave/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>QM Software</title>
+      <link>http://localhost:1313/tags/qm-software/</link>
+      <pubDate>Wed, 30 Sep 2026 19:53:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/qm-software/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Guassian Plane Wave</title>
+      <link>http://localhost:1313/tags/guassian-plane-wave/</link>
+      <pubDate>Wed, 30 Sep 2026 14:44:33 +0530</pubDate>
+      <guid>http://localhost:1313/tags/guassian-plane-wave/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ejemplo</title>
       <link>http://localhost:1313/tags/ejemplo/</link>
@@ -16,24 +44,10 @@
       <description></description>
     </item>
     <item>
-      <title>Example</title>
-      <link>http://localhost:1313/tags/example/</link>
-      <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
-      <guid>http://localhost:1313/tags/example/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Exemple</title>
       <link>http://localhost:1313/tags/exemple/</link>
       <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
       <guid>http://localhost:1313/tags/exemple/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Markdown Syntax</title>
-      <link>http://localhost:1313/tags/markdown-syntax/</link>
-      <pubDate>Fri, 09 Dec 2022 19:53:33 +0530</pubDate>
-      <guid>http://localhost:1313/tags/markdown-syntax/</guid>
       <description></description>
     </item>
     <item>
@@ -72,20 +86,6 @@
       <description></description>
     </item>
     <item>
-      <title>Sample</title>
-      <link>http://localhost:1313/tags/sample/</link>
-      <pubDate>Sat, 03 Apr 2021 23:29:21 +0530</pubDate>
-      <guid>http://localhost:1313/tags/sample/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Emoji Support</title>
-      <link>http://localhost:1313/tags/emoji-support/</link>
-      <pubDate>Sat, 03 Apr 2021 22:53:58 +0530</pubDate>
-      <guid>http://localhost:1313/tags/emoji-support/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Soporte De Emoji</title>
       <link>http://localhost:1313/tags/soporte-de-emoji/</link>
       <pubDate>Sat, 03 Apr 2021 22:53:58 +0530</pubDate>
@@ -97,13 +97,6 @@
       <link>http://localhost:1313/tags/support-des-emoji/</link>
       <pubDate>Sat, 03 Apr 2021 22:53:58 +0530</pubDate>
       <guid>http://localhost:1313/tags/support-des-emoji/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Placeholder Text</title>
-      <link>http://localhost:1313/tags/placeholder-text/</link>
-      <pubDate>Sat, 03 Apr 2021 22:41:10 +0530</pubDate>
-      <guid>http://localhost:1313/tags/placeholder-text/</guid>
       <description></description>
     </item>
     <item>
@@ -132,13 +125,6 @@
       <link>http://localhost:1313/tags/contenu-enrichi/</link>
       <pubDate>Sat, 03 Apr 2021 19:53:33 +0530</pubDate>
       <guid>http://localhost:1313/tags/contenu-enrichi/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Rich Content</title>
-      <link>http://localhost:1313/tags/rich-content/</link>
-      <pubDate>Sat, 03 Apr 2021 19:53:33 +0530</pubDate>
-      <guid>http://localhost:1313/tags/rich-content/</guid>
       <description></description>
     </item>
   </channel>

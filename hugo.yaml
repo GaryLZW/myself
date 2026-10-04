@@ -19,11 +19,11 @@ languages:
           title: Blog posts
           url: /blogs
           weight: 1
-        - identifier: gallery
-          name: Gallery
-          title: Image gallery
-          url: /gallery
-          weight: 2
+            #- identifier: gallery
+            #name: Gallery
+            #title: Image gallery
+            #url: /gallery
+            #weight: 2
   # es:
   #   languageName: "Español"
   #   weight: 2
@@ -554,10 +554,10 @@ params:
     menus:
       disableAbout: false
       disableExperience: false
-      disableEducation: false
+      disableEducation: true
       disableProjects: false
       disableAchievements: false
-      disableContact: false
+      disableContact: true
 
   # Hero
   hero:
@@ -565,7 +565,7 @@ params:
     intro: "Hi, my name is"
     title: "Zhongwei Lu."
     subtitle: "I model catalysis processes."
-    content: "A practitioner of first principle computational chemistry. I tend to make use of modern Python tools and machine learning methods to explore unknown catalysis mechanisms."
+    content: "A practitioner of first principle computational chemistry. I use modern Python tools and machine learning methods to explore unknown catalysis mechanisms."
     image: /images/selfie.jpeg
     bottomImage:
       enable: true
@@ -808,7 +808,7 @@ params:
     # title: "Custom Name"
     content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
     btnName: Mail me
-    btnLink: mailto:zhongwei_lu@foxmail.com
+    btnLink: mailto:zhongwei_lu@yeah.net
     # formspree:
     #   enable: true # `contact.email` value will be ignored
     #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
